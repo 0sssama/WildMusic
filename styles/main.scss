@@ -1,0 +1,224 @@
+@import 'breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', 'Pattaya';
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+
+:root { // colors ESKETITI
+    --main: #4965C8;
+    --mainLowOp: rgba(73, 101, 200, 0.3);
+    --mainDark: #1c3280;
+    --mainLight: #8499e6;
+    --light: #efefef;
+    --lightLowOp: rgba(221, 221, 221, 0.85);
+    --lightVeryLowOp: rgba(221, 221, 221, 0.4);
+    --darker: #ddd;
+    --dark: #232323;
+    --darkLowOp: rgba(35, 35, 35, 0.9);
+    --darkVeryLowOp: rgba(35, 35, 35, 0.3);
+    --footerBG: #ececec;
+    --headerHeight: 60px;
+}
+
+
+body {
+    width: 100%;
+    min-height: 300vh;
+    color: var(--main);
+    background-color: var(--light);
+    overflow-x: hidden;
+}
+
+::selection {
+    color: var(--light);
+    background-color: var(--mainDark);
+}
+
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    width: 100%;
+    height: var(--headerHeight);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--lightVeryLowOp);
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 5px 80px var(--darkVeryLowOp);
+    z-index: 50;
+    .logo {
+        padding-left: 4rem;
+        @include mobile {
+            padding-left: 5vw;
+        }
+        cursor: pointer;
+        p {
+            transition: color 400ms ease;
+            &:hover {
+                color: var(--mainDark);
+            }
+            font-size: 2rem;
+            font-family: 'Pattaya';
+            d {
+                font-weight: 700;
+                font-family: 'Raleway'
+            }
+        }
+    }
+    .right {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .icons {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem;
+            @include mobile {
+                margin-right: 3vw;
+            }
+            .icon {
+                margin-top: 5px;
+                cursor: pointer;
+                font-size: 1.6rem;
+                &.account {
+                    font-size:1.5rem;
+                }
+                transition: color 400ms ease;
+                &:hover {
+                    color: var(--mainDark);
+                }
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+            }
+        }
+        .button {
+            height: var(--headerHeight);
+            button {
+                cursor: pointer;
+                height: var(--headerHeight);
+                display: flex;
+                align-items: center;
+                background-color: var(--main);
+                transition: background-color 1s ease;
+                color: var(--light);
+                padding: 0 1.2rem;
+                @include mobile {
+                    padding: 0 3vw;
+                }
+                outline: none;
+                border: none;
+                border-radius: 0;
+                &:hover {
+                    background-color: var(--mainDark);
+                }
+                p {
+                    font-weight: 500;
+                }
+                ion-icon {
+                    margin-right: 0.5rem;
+                    @include mobile {
+                        margin-right: 0;
+                    }
+                    font-size: 2rem;
+                    @include mobile {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+main {
+    height: 100vh;
+    position: relative;
+    padding-top: var(--headerHeight);
+    .text {
+        padding: 0 1rem;
+        margin-top: 8rem;
+        text-align: center;
+        font-size: 2.5rem;
+        @include tablet {
+            font-size: 3rem;
+        }
+        @include desktop {
+            font-size: 3.5rem;
+        }
+        .bold {
+            font-weight: 700;
+        }
+        button {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--main);
+            transition: background-color 1s ease;
+            color: var(--light);
+            border-radius: 10px;
+            text-align: center;
+            outline: none;
+            border: none;
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.2);
+            padding: 0.7rem 1.5rem;
+            margin: 2rem auto 0;
+            cursor: pointer;
+            ion-icon {
+                margin-right: 0.8rem;
+                font-size: 1.8rem;
+            }
+            font-weight: 500;
+            &:hover {
+                background-color: var(--mainDark);
+            }
+        }
+    }
+    .image {
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        @include tablet {
+            left: 30%;
+        }
+        @include desktop {
+            left: 26%;
+        }
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: -1;
+        img {
+            width: 100vw;
+            @include tablet {
+                width: 80vw;
+            }
+            @include desktop {
+                width: 75vw;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.hide-for-mobile {
+    @include notDesktop{
+        display: none!important;
+    }
+}
+.hide-for-desktop {
+    @include desktop {
+        display: none!important;
+    }
+}
+
